@@ -10,6 +10,7 @@ import javax.validation.constraints.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+    private Integer id;
     @Size(min = 3, max = 10, message = "用户名不合法")
     @Pattern(regexp = "^[0-9a-zA-Z_]+$", message = "用户名不合法")
     @NotBlank(message = "用户名不为空")
@@ -19,4 +20,10 @@ public class User {
     private String password;
     @Email(message = "邮箱地址不合法")
     private String email;
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 }
